@@ -1,6 +1,6 @@
 namespace S25130;
 
-public interface IHazard
+public interface IHazardNotifier
 {
     void NotifyHazard(string message);
 }
