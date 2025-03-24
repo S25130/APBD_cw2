@@ -15,7 +15,7 @@ abstract class Container
     public virtual void Load(double weight)
     {
         if (CurrentLoad + weight > MaxLoad)
-            throw new Exception("Przekroczono ładowność");
+            throw new Exception("OverfillException: Exceeded maximum load capacity");
         
         CurrentLoad += weight;
     }
