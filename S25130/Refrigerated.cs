@@ -1,6 +1,6 @@
 namespace S25130;
 
-class Refrigerated : Container, IHazardNotifier
+class Refrigerated : Container
 {
     public string ProductType { get; }
     public double Temperature { get; }
