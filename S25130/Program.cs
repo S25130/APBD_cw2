@@ -1,26 +1,37 @@
 ﻿using S25130;
-
-static void Main()
+class Program
 {
-    Ship ship = new Ship("Neptun", 10, 100000, 20);
-    Liquid milk = new Liquid(false);
-    Gas helium = new Gas(25);
-    Refrigerated banana = new Refrigerated("Fruit", -9.6);
-
-    try
+    static void Main()
     {
-        milk.Load(500);
-        helium.Load(1000);
-        banana.Load(1500);
+        Console.WriteLine("Podaj nazwę statku: ");
+        string shipName = Console.ReadLine();
+        Console.WriteLine("Podaj maksymalną liczbę kontenerów: ");
+        int maxConNum = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Podaj maksymalny załadunek w kg: ");
+        int maxWeight = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Podaj prędkość statku: ");
+        int maxSpeed = Convert.ToInt32(Console.ReadLine());
+    
+        Ship ship = new Ship(shipName, maxConNum, maxWeight, maxSpeed);
+        Liquid milk = new Liquid(true);
+        Gas helium = new Gas(25);
+        Refrigerated banana = new Refrigerated("Fruit", -9.6);
 
-        ship.LoadContainer(milk);
-        ship.LoadContainer(helium);
-        ship.LoadContainer(banana);
+        try
+        {
+            milk.Load(800);
+            helium.Load(1000);
+            banana.Load(1500);
 
-        ship.PrintInfo();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
+            ship.LoadContainer(milk);
+            ship.LoadContainer(helium);
+            ship.LoadContainer(banana);
+
+            ship.PrintInfo();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }
