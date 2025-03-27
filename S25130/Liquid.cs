@@ -14,8 +14,11 @@ class Liquid : Container, IHazardNotifier
     {
         double maxAllowedLoad = IsHazardous ? MaxLoad * 0.5 : MaxLoad * 0.9;
         if (weight > maxAllowedLoad)
+        {
             NotifyHazard("Attempted to overload hazardous liquid container");
-        
+            weight = maxAllowedLoad;
+        }
+            
         base.Load(weight);
     }
     
