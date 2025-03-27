@@ -19,9 +19,14 @@ abstract class Container
     public virtual void Load(double weight)
     {
         if (CurrentLoad + weight > MaxLoad)
-            throw new Exception("OverfillException: Exceeded maximum load capacity");
-        
-        CurrentLoad += weight;
+        {
+            Console.WriteLine("Warning: Load exceeds maximum capacity. Adjusting to maximum load.");
+            CurrentLoad = MaxLoad;
+        }
+        else
+        {
+            CurrentLoad += weight;
+        }
     }
     
     public virtual void Unload()
