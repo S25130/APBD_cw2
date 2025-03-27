@@ -23,6 +23,12 @@ class Program
         int gasPressure = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Podaj wagę kontenera (gas):");
         int gasWeight = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Podaj nazwę produktu w chłodni:");
+        string productName = Console.ReadLine();
+        Console.WriteLine("Podaj temperature (C):");
+        double temperature = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Podaj wagę kontenera (refrigerator):");
+        int refrigeratorWeight = Convert.ToInt32(Console.ReadLine());
         
         bool hazard;
         if (hazardious == "T" || hazardious == "t")
@@ -42,17 +48,17 @@ class Program
         Ship ship = new Ship(shipName, maxConNum, maxWeight, maxSpeed);
         Liquid liquid = new Liquid(liquidName, hazard);
         Gas gas = new Gas(gasName,gasPressure);
-        Refrigerated banana = new Refrigerated("Fruit", -9.6);
+        Refrigerated refrigerated = new Refrigerated(productName, temperature);
 
         try
         {
             liquid.Load(liquidWeight);
             gas.Load(gasWeight);
-            banana.Load(1500);
+            refrigerated.Load(refrigeratorWeight);
 
             ship.LoadContainer(liquid);
             ship.LoadContainer(gas);
-            ship.LoadContainer(banana);
+            ship.LoadContainer(refrigerated);
 
             ship.PrintInfo();
         }

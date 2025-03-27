@@ -4,11 +4,11 @@ class Refrigerated : Container
 {
     public string ProductType { get; }
     public double Temperature { get; }
-
+    
     public Refrigerated(string productType, double temperature) : base("R")
     {
         ProductType = productType;
         Temperature = temperature;
-        MaxLoad = 3000;
+        MaxLoad = 4000;
     }
 }
