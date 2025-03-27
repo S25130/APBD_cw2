@@ -13,7 +13,11 @@ class Program
         int maxSpeed = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Czy kontener jest niebezpieczny (T/F):");
         string hazardious = Console.ReadLine();
-
+        Console.WriteLine("Podaj nazwę płynu:");
+        string liquidName = Console.ReadLine();
+        Console.WriteLine("Podaj wagę kontenera (liquid):");
+        int liquidWeight = Convert.ToInt32(Console.ReadLine());
+        
         bool hazard;
         if (hazardious == "T" || hazardious == "t")
         {
@@ -30,17 +34,17 @@ class Program
         }
     
         Ship ship = new Ship(shipName, maxConNum, maxWeight, maxSpeed);
-        Liquid milk = new Liquid(hazard);
+        Liquid liquid = new Liquid(liquidName, hazard);
         Gas helium = new Gas(25);
         Refrigerated banana = new Refrigerated("Fruit", -9.6);
 
         try
         {
-            milk.Load(850);
+            liquid.Load(liquidWeight);
             helium.Load(1000);
             banana.Load(1500);
 
-            ship.LoadContainer(milk);
+            ship.LoadContainer(liquid);
             ship.LoadContainer(helium);
             ship.LoadContainer(banana);
 

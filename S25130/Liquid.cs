@@ -4,7 +4,7 @@ class Liquid : Container, IHazardNotifier
 {
     public bool IsHazardous { get; }
 
-    public Liquid(bool isHazardous) : base("L")
+    public Liquid(string name, bool isHazardous) : base("L")
     {
         IsHazardous = isHazardous;
         MaxLoad = 1000;
