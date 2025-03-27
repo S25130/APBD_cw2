@@ -1,13 +1,13 @@
 namespace S25130;
 
-class Liquid : Container, IHazardNotifier
+class LiquidContainer : Container, IHazardNotifier
 {
     public bool IsHazardous { get; }
-
-    public Liquid(string name, bool isHazardous) : base("L")
+    
+    public LiquidContainer(string name, bool isHazardous) : base("L")
     {
         IsHazardous = isHazardous;
-        MaxLoad = 1000;
+        MaxLoad = 5000;
     }
     
     public override void Load(double weight)
@@ -18,7 +18,7 @@ class Liquid : Container, IHazardNotifier
             NotifyHazard("Attempted to overload hazardous liquid container");
             weight = maxAllowedLoad;
         }
-            
+        
         base.Load(weight);
     }
     
