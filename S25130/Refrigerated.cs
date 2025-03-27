@@ -9,6 +9,6 @@ class Refrigerated : Container
     {
         ProductType = productType;
         Temperature = temperature;
-        MaxLoad = 4000;
+        MaxLoad = 5000;
     }
 }

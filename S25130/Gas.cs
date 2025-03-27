@@ -9,7 +9,7 @@ class Gas : Container, IHazardNotifier
     public Gas(string name, double pressure) : base("G")
     {
         Pressure = pressure;
-        MaxLoad = 3000;
+        MaxLoad = 5000;
     }
     
     public override void Unload()
