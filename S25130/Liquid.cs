@@ -1,10 +1,10 @@
 namespace S25130;
 
-class LiquidContainer : Container, IHazardNotifier
+class Liquid : Container, IHazardNotifier
 {
     public bool IsHazardous { get; }
     
-    public LiquidContainer(string name, bool isHazardous) : base("L")
+    public Liquid(string name, bool isHazardous) : base("L")
     {
         IsHazardous = isHazardous;
         MaxLoad = 5000;
